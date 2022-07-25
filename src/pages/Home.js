@@ -48,14 +48,40 @@ class Home extends Component {
 
     Axios({
       method: "POST",
-      url: "http://localhost:8080/add/item",
+      url: "http://localhost:8080/items",
       data: {jsonObject},
       headers: {
         "Content-Type": "application/json"
-      }
+      },
+      withCredentials: true
     }).then(res => {
-        console.log(res.data.message);
+      console.log(res.data.message);
     });
+
+    /*Axios({
+      method: "GET",
+      url: "http://localhost:8080/get/searchitem",
+      data: {jsonObject},
+      headers: {
+        "Content-Type": "application/json"
+      },
+      withCredentials: true
+    }).then(res => {
+      console.log(res.data.message);
+    });
+
+    Axios({
+      method: "GET",
+      url: "http://localhost:8080/get/items",
+      data: {jsonObject},
+      headers: {
+        "Content-Type": "application/json"
+      },
+      withCredentials: true
+    }).then(res => {
+      console.log(res.data.message);
+    });*/
+
 
     // Create a array that contains the current array and the new todo item
     let new_list = [...this.state.todos, todo];
